@@ -20,8 +20,7 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 8fdae3d82657f214ab8e92aa345ad188, type: 3}
   itemSpawnObject: {fileID: 54118688843042090, guid: cb32d692624834a46823f2dc9c01f4a5,
     type: 2}
-  weaponSlotObject: {fileID: 54489579891074848, guid: 518279ee3f0cb7b4ba4915ee4bacb5ca,
-    type: 2}
+  weaponSlotObject: {fileID: 11400000, guid: 49eab774cd4aa47549ea7f15204eb806, type: 2}
   isEquipped: 0
   isInteractable: 0
   isStorable: 1

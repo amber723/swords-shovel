@@ -42,15 +42,26 @@ public class MouseManager : MonoBehaviour
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), 
             out hit, 50, clickableLayer.value))
         {
+            //Override Cursor
+            Cursor.SetCursor(target, new Vector2(16, 16), CursorMode.Auto);
+
             bool door = false;
+            
             if (hit.collider.gameObject.tag == "Doorway")
             {
                 Cursor.SetCursor(doorway, new Vector2(16, 16), CursorMode.Auto);
                 door = true;
             }
-            else
+
+            if (hit.collider.gameObject.tag == "Chest")
             {
-                Cursor.SetCursor(target, new Vector2(16, 16), CursorMode.Auto);
+                Cursor.SetCursor(pointer, new Vector2(16, 16), CursorMode.Auto);
+            }
+
+            bool isAttackable = hit.collider.GetComponent(typeof(IAttackable)) != null;
+            if (isAttackable)
+            {
+                Cursor.SetCursor(sword, new Vector2(16, 16), CursorMode.Auto);
             }
 
             // If environment surface is clicked, invoke callbacks.
@@ -60,6 +71,11 @@ public class MouseManager : MonoBehaviour
                 {
                     Transform doorway = hit.collider.gameObject.transform;
                     OnClickEnvironment.Invoke(doorway.position + doorway.forward * 10);
+                }
+                else if (isAttackable)
+                {
+                    GameObject attackable = hit.collider.gameObject;
+                    OnClickAttackable.Invoke(attackable);
                 }
                 else
                 {

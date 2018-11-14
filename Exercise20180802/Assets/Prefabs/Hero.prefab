@@ -179,7 +179,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 0
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114112542000598322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,6 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e5084d2bed6804e842e44e1f96ffbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  demoAttack: {fileID: 11400000, guid: 552969e7bde784beaab390f53f1fdf31, type: 2}
 --- !u!114 &114309970992077704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -281,7 +281,6 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 013c3863e93063b42a8cf93a1b38b630, type: 2}
   - {fileID: 2100000, guid: e3b0a7c6c8f0cc94384ee51cd256dd41, type: 2}

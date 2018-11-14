@@ -38,7 +38,7 @@ public class ItemPickUps_SO : ScriptableObject
     public Material itemMaterial = null;
     public Sprite itemIcon = null;
     public Rigidbody itemSpawnObject = null;
-    public Rigidbody weaponSlotObject = null;
+    public Weapon weaponSlotObject = null;
 
     public bool isEquipped = false;
     public bool isInteractable = false;     //eg. non-interactable quest item(任务道具) 
