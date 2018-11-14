@@ -11,8 +11,10 @@ public class MouseManager : MonoBehaviour
     public Texture2D pointer;
     public Texture2D target;
     public Texture2D doorway;
+    public Texture2D sword;
 
     public Events.EventVector3 OnClickEnvironment;
+    public Events.EventGameObject OnClickAttackable;
 
     private bool _useDefaultCursor = false;
 

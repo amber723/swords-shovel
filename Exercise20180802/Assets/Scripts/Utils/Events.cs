@@ -14,7 +14,7 @@ public class Events {
     //Send the clicked point to the NavMesh Agent so it can move to that point 
     [System.Serializable] public class EventVector3 : UnityEvent<Vector3> { }
 
-
+    [System.Serializable] public class EventGameObject: UnityEvent<GameObject> { }
 }
 
 public class EventTriggerExample : EventTrigger {
