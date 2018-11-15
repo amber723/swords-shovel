@@ -2335,11 +2335,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1644408783840310, guid: dd51aa0141228c3478f60d3fe5ba00eb,
     type: 2}
   m_PrefabInternal: {fileID: 1405501420}
---- !u!195 &1302807681 stripped
-NavMeshAgent:
-  m_PrefabParentObject: {fileID: 195592985498475856, guid: dd51aa0141228c3478f60d3fe5ba00eb,
-    type: 2}
-  m_PrefabInternal: {fileID: 1405501420}
 --- !u!1 &1327482409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3120,7 +3115,7 @@ Prefab:
         type: 2}
       propertyPath: OnClickEnvironment.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1302807681}
+      objectReference: {fileID: 1405501421}
     - target: {fileID: 114106425073214990, guid: 4052bdf0c3f66bb4a8e22553843b139d,
         type: 2}
       propertyPath: OnClickAttackable.m_PersistentCalls.m_Calls.Array.data[0].m_Target
