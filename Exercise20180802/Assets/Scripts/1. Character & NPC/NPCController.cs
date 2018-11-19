@@ -3,16 +3,19 @@ using UnityEngine.AI;
 
 public class NPCController : MonoBehaviour
 {
-    public float patrolTime = 15; // time in seconds to wait before seeking a new patrol destination
-    public float aggroRange = 10; // distance in scene units below which the NPC will increase speed and seek the player
-    public Transform[] waypoints; // collection of waypoints which define a patrol area
+    public float patrolTime = 15;   // time in seconds to wait before seeking a new patrol destination
+    public float aggroRange = 10;   // distance in scene units below which the NPC will increase speed and seek the player
+    public Transform[] waypoints;   // collection of waypoints which define a patrol area
+    public AttackDefinition attack; // the attack the NPC inflicts on our player.
 
-    int index; // the current waypoint index in the waypoints array
-    float speed, agentSpeed; // current agent speed and NavMeshAgent component speed
-    Transform player; // reference to the player object transform
+    int index;                  // the current waypoint index in the waypoints array
+    float speed, agentSpeed;    // current agent speed and NavMeshAgent component speed
+    Transform player;           // reference to the player object transform
 
-    Animator animator; // reference to the animator component
-    NavMeshAgent agent; // reference to the NavMeshAgent
+    Animator animator;          // reference to the animator component
+    NavMeshAgent agent;         // reference to the NavMeshAgent
+
+    float timeOfLastAttack;     //store the time the NPC attacked the player
 
     void Awake()
     {
@@ -30,11 +33,40 @@ public class NPCController : MonoBehaviour
             //time(the 2nd param) is a delay for the start of this cycle.
             InvokeRepeating("Patrol", Random.Range(0, patrolTime), patrolTime);
         }
+
+        //use minvalue instead of 0, since we dont want our game thinking the 
+        //NPC attacked the player when the game started.
+        timeOfLastAttack = float.MinValue;
     }
 
     void Update()
     {
-        animator.SetFloat("Speed", agent.velocity.magnitude);
+        speed = Mathf.Lerp(speed, agent.velocity.magnitude, Time.deltaTime * 10);
+        animator.SetFloat("Speed", speed);
+
+        float timeSinceLastAttack = Time.time - timeOfLastAttack;
+        bool attackOnCooldown = timeSinceLastAttack < attack.Cooldown;
+
+        float distanceFromPlayer = Vector3.Distance(transform.position,
+            player.transform.position);
+        bool attackInRange = distanceFromPlayer < attack.Range;
+
+        agent.isStopped = attackOnCooldown;
+
+        if (!attackOnCooldown && attackInRange)
+        {
+            transform.LookAt(player.transform);
+            timeOfLastAttack = Time.time;
+            animator.SetTrigger("Attack");
+        }
+    }
+
+    public void Hit()
+    {
+        if (attack is Weapon)
+        {
+            ((Weapon) attack).ExecuteAttack(gameObject, player.gameObject);
+        }
     }
 
     //The second timer to control how frequently the NPC pursues a different waypoint

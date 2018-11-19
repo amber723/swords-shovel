@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
+    public CharacterStats_SO characterDefinition_Template;
     public CharacterStats_SO characterDefinition;
     public CharacterInventory charInv;
     public GameObject characterWeaponSlot;
@@ -19,6 +20,9 @@ public class CharacterStats : MonoBehaviour
     #region Initializations
     void Start()
     {
+        if (characterDefinition_Template != null)
+            characterDefinition = Instantiate(characterDefinition_Template);
+
         if (!characterDefinition.setManually)
         {
             characterDefinition.maxHealth = 100;

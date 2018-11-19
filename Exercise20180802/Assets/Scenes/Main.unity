@@ -1103,32 +1103,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 611653211}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &679773752 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90,
-    type: 2}
-  m_PrefabInternal: {fileID: 939931711}
---- !u!195 &679773756
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 679773752}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.3
-  m_Speed: 4
-  m_Acceleration: 30
-  avoidancePriority: 50
-  m_AngularSpeed: 400
-  m_StoppingDistance: 1.5
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
-  m_AutoRepath: 1
-  m_Height: 1.59
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &686756365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,11 +1500,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1327482410}
     m_Modifications:
-    - target: {fileID: 114814422407144102, guid: ef613d77160d9a24f891c787d244dd90,
-        type: 2}
-      propertyPath: waypoints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4453258726093468, guid: ef613d77160d9a24f891c787d244dd90, type: 2}
       propertyPath: m_LocalPosition.x
       value: -7.16
@@ -1563,10 +1532,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90, type: 2}
-      propertyPath: m_Name
-      value: BatGoblin (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 114814422407144102, guid: ef613d77160d9a24f891c787d244dd90,
         type: 2}
       propertyPath: waypoints.Array.data[0]
@@ -1579,11 +1544,6 @@ Prefab:
       objectReference: {fileID: 2002849901}
     - target: {fileID: 114814422407144102, guid: ef613d77160d9a24f891c787d244dd90,
         type: 2}
-      propertyPath: aggroRange
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114814422407144102, guid: ef613d77160d9a24f891c787d244dd90,
-        type: 2}
       propertyPath: waypoints.Array.data[2]
       value: 
       objectReference: {fileID: 1859973874}
@@ -1592,6 +1552,10 @@ Prefab:
       propertyPath: waypoints.Array.data[3]
       value: 
       objectReference: {fileID: 2052110533}
+    - target: {fileID: 1880194204201268, guid: ef613d77160d9a24f891c787d244dd90, type: 2}
+      propertyPath: m_Name
+      value: BatGoblin (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef613d77160d9a24f891c787d244dd90, type: 2}
   m_IsPrefabParent: 0
@@ -2335,6 +2299,19 @@ GameObject:
   m_PrefabParentObject: {fileID: 1644408783840310, guid: dd51aa0141228c3478f60d3fe5ba00eb,
     type: 2}
   m_PrefabInternal: {fileID: 1405501420}
+--- !u!114 &1302807681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1302807679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44364404210a2401d9cb6022eac8117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 114823157770898010, guid: 7ef7a8c043b9d4ea7838164326668644, type: 2}
+  TextColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!1 &1327482409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2720,6 +2697,9 @@ GameObject:
   - component: {fileID: 1544680929}
   - component: {fileID: 1544680935}
   - component: {fileID: 1544680936}
+  - component: {fileID: 1544680939}
+  - component: {fileID: 1544680938}
+  - component: {fileID: 1544680937}
   m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
@@ -2762,7 +2742,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2842,8 +2822,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44364404210a2401d9cb6022eac8117a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: {fileID: 114984060217416106, guid: d2fc7b003d6d4234cb39d1bba129cda7, type: 2}
+  Text: {fileID: 114823157770898010, guid: 7ef7a8c043b9d4ea7838164326668644, type: 2}
   TextColor: {r: 1, g: 0, b: 0, a: 0}
+--- !u!114 &1544680937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1544680928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829554500f2894538baecb6eed71ac90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1544680938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1544680928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4cb4d952c9254f1db03bb21caf5e8c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1544680939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1544680928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c113f80cb5d44ff43a6126a0384b7096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterDefinition_Template: {fileID: 11400000, guid: 916ca860e851c4723993b27e311e13e5,
+    type: 2}
+  characterDefinition: {fileID: 11400000, guid: b74398863c5c44cad99cbd5764ca1dc5,
+    type: 2}
+  charInv: {fileID: 0}
+  characterWeaponSlot: {fileID: 0}
 --- !u!4 &1579294953 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4951823885998528, guid: a8d3fcab2b67056498a80532b2542465,
