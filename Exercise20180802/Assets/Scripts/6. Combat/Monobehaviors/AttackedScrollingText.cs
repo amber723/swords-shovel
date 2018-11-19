@@ -12,6 +12,7 @@ public class AttackedScrollingText : MonoBehaviour, IAttackable
         var text = attack.Damage.ToString();
 
         var scrollingText = Instantiate(Text, transform.position, Quaternion.identity);
+        Debug.LogError("scrollingText" + scrollingText.gameObject.transform.position.x);
         scrollingText.SetText(text);
         scrollingText.SetColor(TextColor);
     }

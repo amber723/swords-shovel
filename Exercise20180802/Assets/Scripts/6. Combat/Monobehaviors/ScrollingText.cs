@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class ScrollingText : MonoBehaviour 
 {
+    //control how many seconds the text scrolls before detroy it.
     public float Duration = 1f;
     public float Speed;
 
-    private TextMesh textMesh;
-    private float startTime;
+    TextMesh textMesh;
+    float startTime;
 
+    //Use awake instead of start since getting reference to one of the components.
 	void Awake () 
     {
         textMesh = GetComponent<TextMesh>();
+
+        //Time.time tells how many seconds have passed since the game started.
+        //This can keep track of how long the text has been scrolling.
         startTime = Time.time;
 	}
 	
@@ -28,7 +33,7 @@ public class ScrollingText : MonoBehaviour
         else
         {
             //Destroy
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
 	}
 

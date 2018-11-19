@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AttackedForce : MonoBehaviour, IAttackable
 {
+    //the amount of force applied to the attacked target when hit.
     public float ForceToAdd;
     private Rigidbody rBody;
 
