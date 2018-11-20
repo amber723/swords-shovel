@@ -33,7 +33,7 @@ public class ScrollingText : MonoBehaviour
         else
         {
             //Destroy
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
 	}
 

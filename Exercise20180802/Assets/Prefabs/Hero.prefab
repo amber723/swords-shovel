@@ -50,12 +50,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4621171860792138}
   - component: {fileID: 95401923652868456}
-  - component: {fileID: 114112542000598322}
   - component: {fileID: 195592985498475856}
-  - component: {fileID: 114322454667812914}
   - component: {fileID: 136055889074183352}
+  - component: {fileID: 114112542000598322}
+  - component: {fileID: 114322454667812914}
   - component: {fileID: 114403720597843154}
-  m_Layer: 0
+  - component: {fileID: 114388104159482586}
+  m_Layer: 10
   m_Name: Hero
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -257,6 +258,19 @@ MonoBehaviour:
     type: 2}
   charInv: {fileID: 114309970992077704}
   characterWeaponSlot: {fileID: 1322168014054006}
+--- !u!114 &114388104159482586
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1644408783840310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44364404210a2401d9cb6022eac8117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 114823157770898010, guid: 7ef7a8c043b9d4ea7838164326668644, type: 2}
+  TextColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &114403720597843154
 MonoBehaviour:
   m_ObjectHideFlags: 1

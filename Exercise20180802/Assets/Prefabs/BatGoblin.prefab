@@ -35,11 +35,17 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4453258726093468}
-  - component: {fileID: 95948711514966916}
-  - component: {fileID: 114814422407144102}
   - component: {fileID: 195946333030974264}
+  - component: {fileID: 95948711514966916}
+  - component: {fileID: 136536083098052060}
+  - component: {fileID: 114814422407144102}
   - component: {fileID: 114543648397203402}
-  m_Layer: 0
+  - component: {fileID: 114372543233546156}
+  - component: {fileID: 114450571674435704}
+  - component: {fileID: 114841201906081900}
+  - component: {fileID: 114820745211505862}
+  - component: {fileID: 114874393951668764}
+  m_Layer: 9
   m_Name: BatGoblin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +59,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1880194204201268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.16, y: -1.19, z: -41.03}
+  m_LocalPosition: {x: -0.09, y: -0.05, z: -49.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4591444548809694}
@@ -90,6 +96,28 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 0
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114372543233546156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1880194204201268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829554500f2894538baecb6eed71ac90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114450571674435704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1880194204201268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4cb4d952c9254f1db03bb21caf5e8c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114543648397203402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,6 +153,58 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   attack: {fileID: 11400000, guid: c4499d1da8e9e4de785f5d45fe013fb1, type: 2}
+--- !u!114 &114820745211505862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1880194204201268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d01d7f107fa194501a76909362e2cc7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114841201906081900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1880194204201268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44364404210a2401d9cb6022eac8117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 114823157770898010, guid: 7ef7a8c043b9d4ea7838164326668644, type: 2}
+  TextColor: {r: 1, g: 1, b: 0, a: 1}
+--- !u!114 &114874393951668764
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1880194204201268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46fbc6f8a5cd64357bf1ccc2f38c5e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RagdollObject: {fileID: 114743865186994990, guid: 71687b4f2d2a4b1439c079dd3a06dbb1,
+    type: 2}
+  Force: 5000
+  Lift: 1
+--- !u!136 &136536083098052060
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1880194204201268}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.35
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!137 &137795354575275260
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
