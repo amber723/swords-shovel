@@ -190,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RagdollObject: {fileID: 114743865186994990, guid: 71687b4f2d2a4b1439c079dd3a06dbb1,
     type: 2}
-  Force: 5000
+  Force: 2500
   Lift: 1
 --- !u!136 &136536083098052060
 CapsuleCollider:

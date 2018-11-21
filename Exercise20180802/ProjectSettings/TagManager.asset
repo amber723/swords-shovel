@@ -26,8 +26,8 @@ TagManager:
   - Clickable
   - Enemy
   - Player
-  - 
-  - 
+  - EnemySpells
+  - PlayerSpells
   - 
   - 
   - 

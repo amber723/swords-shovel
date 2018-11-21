@@ -9,6 +9,12 @@ public class Spell : AttackDefinition
     public Projectile ProjectileToFire;
     public float ProjectileSpeed;
 
+    /*
+     * HotSpot will be the spawn point for the projectiles
+     * Layer for the collision layer our projectile will be on. To make sure enemy
+     * spells do not collide with other enemies and player spells do not collide
+     * with the player
+     */
     public void Cast(GameObject Caster, Vector3 HotSpot, Vector3 Target, int Layer)
     {
         // Fire Projectile at target
@@ -18,7 +24,11 @@ public class Spell : AttackDefinition
         // Set Projectile's collision layer
         projectile.gameObject.layer = Layer;
 
-        // Listen to Projectile Collided Event
+        /**
+         * Listen to Projectile Collided Event
+         * When we listen to an event, we'll want to add an event handler to the
+         * event object.
+         * **/
         projectile.ProjectileCollided += OnProjectileCollided;
     }
 

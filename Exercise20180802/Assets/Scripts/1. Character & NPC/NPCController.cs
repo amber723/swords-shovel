@@ -8,6 +8,8 @@ public class NPCController : MonoBehaviour
     public Transform[] waypoints;   // collection of waypoints which define a patrol area
     public AttackDefinition attack; // the attack the NPC inflicts on our player.
 
+    public Transform SpellHotSpot;
+
     int index;                  // the current waypoint index in the waypoints array
     float speed, agentSpeed;    // current agent speed and NavMeshAgent component speed
     Transform player;           // reference to the player object transform
@@ -66,6 +68,11 @@ public class NPCController : MonoBehaviour
         if (attack is Weapon)
         {
             ((Weapon) attack).ExecuteAttack(gameObject, player.gameObject);
+        }
+        else if (attack is Spell)
+        {
+            ((Spell) attack).Cast(gameObject, SpellHotSpot.position,
+                player.transform.position, LayerMask.NameToLayer("EnemySpells"));
         }
     }
 

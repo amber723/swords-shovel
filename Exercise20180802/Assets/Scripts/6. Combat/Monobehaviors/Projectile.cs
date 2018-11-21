@@ -12,6 +12,8 @@ public class Projectile : MonoBehaviour
 
     private float distanceTraveled;
 
+    //a delegate in C#. When this event is raised, we'll be sending along two
+    //game objects, one for caster, the other for what we collide with.
     public event Action<GameObject, GameObject> ProjectileCollided;
 
     public void Fire(GameObject Caster, Vector3 Target, float Speed, float Range)
@@ -44,16 +46,17 @@ public class Projectile : MonoBehaviour
         }
 	}
 
-    private void OnTriggerEnter(Collider other)
+    //OnTriggerEnter is a Unity function
+    void OnTriggerEnter(Collider other)
     {
-        // Raise an event
+        // Raise a C# event, so other objects can listen to and respond to when
+        //the event is raised.
 
         if(ProjectileCollided != null)
         {
             ProjectileCollided(caster, other.gameObject);
         }
 
-        //Destroy Object
         Destroy(gameObject);
     }
 }
