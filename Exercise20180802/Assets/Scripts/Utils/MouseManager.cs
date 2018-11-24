@@ -82,6 +82,10 @@ public class MouseManager : MonoBehaviour
                     OnClickEnvironment.Invoke(hit.point);
                 }
             }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                OnClickEnvironment.Invoke(hit.point);
+            }
         }
         else
         {

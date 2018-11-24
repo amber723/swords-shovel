@@ -32,7 +32,7 @@ public class Spell : AttackDefinition
         projectile.ProjectileCollided += OnProjectileCollided;
     }
 
-    private void OnProjectileCollided(GameObject Caster, GameObject Target)
+    void OnProjectileCollided(GameObject Caster, GameObject Target)
     {
         // Attack landed on target, create attack and attack the target
 

@@ -49,22 +49,28 @@ public class NPCController : MonoBehaviour
         float timeSinceLastAttack = Time.time - timeOfLastAttack;
         bool attackOnCooldown = timeSinceLastAttack < attack.Cooldown;
 
-        float distanceFromPlayer = Vector3.Distance(transform.position,
-            player.transform.position);
-        bool attackInRange = distanceFromPlayer < attack.Range;
-
         agent.isStopped = attackOnCooldown;
 
-        if (!attackOnCooldown && attackInRange)
+        if (player)
         {
-            transform.LookAt(player.transform);
-            timeOfLastAttack = Time.time;
-            animator.SetTrigger("Attack");
+            float distanceFromPlayer = Vector3.Distance(transform.position,
+                player.transform.position);
+            bool attackInRange = distanceFromPlayer < attack.Range;
+
+            if (!attackOnCooldown && attackInRange)
+            {
+                transform.LookAt(player.transform);
+                timeOfLastAttack = Time.time;
+                animator.SetTrigger("Attack");
+            }
         }
     }
 
     public void Hit()
     {
+        if (!player)
+            return;
+
         if (attack is Weapon)
         {
             ((Weapon) attack).ExecuteAttack(gameObject, player.gameObject);
