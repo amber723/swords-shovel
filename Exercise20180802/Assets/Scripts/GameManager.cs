@@ -18,6 +18,7 @@ public class GameManager : Singleton<GameManager>
         RUNNING,
         PAUSED
     }
+
     public GameState CurGameState { get; private set; }
     public Events.EventGameState OnGameStateChanged;
 
@@ -74,7 +75,7 @@ public class GameManager : Singleton<GameManager>
 
         /*LoadSceneMode is an enum and specify whether or not to load a scene
          * additively or as a single scene.*/
-        AsyncOperation ao = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
+        AsyncOperation ao = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Single);
 
         /*If a request is made to load a scene that it can't load,
             the SceneManager will return a null value instead.*/
@@ -93,19 +94,6 @@ public class GameManager : Singleton<GameManager>
         ao.completed += OnLoadOperationComplete;
         _loadOperations.Add(ao);
         _curLevelName = levelName;
-    }
-
-    public void UnloadLevel(string levelName)
-    {
-        AsyncOperation ao = SceneManager.UnloadSceneAsync(levelName);
-
-        if (ao == null)
-        {
-            Debug.LogError("[GameManager] Unable to unload level " + levelName);
-            return;
-        }
-
-        ao.completed += OnUnloadOperationComplete;
     }
 
     //The listening function needs to receive an argument of at least an AnsyncOperation.
@@ -144,8 +132,8 @@ public class GameManager : Singleton<GameManager>
     void HandleMainMenuFadeComplete(bool fadeOut)
     {
 
-        if (!fadeOut)//if MainMenu has fadeIn
-            UnloadLevel(_curLevelName);
+        //if (!fadeOut)//if MainMenu has fadeIn
+        //UnloadLevel(_curLevelName);
     }
 
     void UpdateState(GameState state)
@@ -194,6 +182,9 @@ public class GameManager : Singleton<GameManager>
     protected override void OnDestroy()
     {
         base.OnDestroy();
+
+        if (_instancedSystemPrefabs == null)
+            return;
 
         for (int i = 0; i < _instancedSystemPrefabs.Count; ++i)
         {
