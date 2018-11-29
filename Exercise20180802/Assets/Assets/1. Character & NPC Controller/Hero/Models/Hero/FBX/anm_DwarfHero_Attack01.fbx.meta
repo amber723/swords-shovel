@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: f4d79ef96609c95428ea88ad2162473f
 ModelImporter:
-  serializedVersion: 23
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     100002: Beard_1_Con
@@ -221,22 +221,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Weapon_material
-    second: {fileID: 2100000, guid: 944bd8522149c0641a0445a41c93fecc, type: 2}
+    second: {fileID: 2100000, guid: 470d955bc31438e47a0e8e0977edf396, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: hero_armor
-    second: {fileID: 2100000, guid: 7729d36a6d74cbb4196902cfcefe6afe, type: 2}
+    second: {fileID: 2100000, guid: f20163c4ab1e99f44b009e72732fa0a8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: hero_body
-    second: {fileID: 2100000, guid: 609e1c3109d06a24f9d5631d517ed445, type: 2}
+    second: {fileID: 2100000, guid: 7ac7d93e0a511c646ba807f05488aad0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: hero_hair
-    second: {fileID: 2100000, guid: 73736f657fc7f404ebe9587f79b970f9, type: 2}
+    second: {fileID: 2100000, guid: 829ab2975d0758d46bb1de7180e9b95a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -327,8 +327,6 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

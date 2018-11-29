@@ -24,6 +24,7 @@ public class Projectile : MonoBehaviour
 
         //calculate travel direction
         travelDirection = Target - transform.position;
+        travelDirection.y = 0f;
         travelDirection.Normalize();
 
         // initialize distance traveled

@@ -10,7 +10,7 @@ using UnityEngine;
    This prevent us from creating singletons of arbitrary objects that does not 
    extend the class Singleton.
  */
-public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
+public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
     //An accessor in C# is a method that looks like a variable that contains
     //a getter and a setter.
@@ -28,8 +28,6 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
         {
             Debug.LogError("[Singleton] Trying to instantiate a second " +
                 "instance of a singleton class.");
-
-            Destroy(gameObject);
         }
         else
         {
@@ -37,7 +35,6 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
             //(T): we cast this to the T;
             //ensure the object is of type T that's being passed in
             Instance = (T) this;
-            DontDestroyOnLoad(gameObject);
         }
 
     }
