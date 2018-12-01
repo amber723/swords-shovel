@@ -3064,6 +3064,12 @@ Prefab:
       propertyPath: InventoryDisplayHolder
       value: 
       objectReference: {fileID: 588948684}
+    - target: {fileID: 114746441827454448, guid: dd51aa0141228c3478f60d3fe5ba00eb,
+        type: 2}
+      propertyPath: RagdollObject
+      value: 
+      objectReference: {fileID: 114577197864686808, guid: b8f493832f12f744d8c3bcce958ce93f,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd51aa0141228c3478f60d3fe5ba00eb, type: 2}
   m_IsPrefabParent: 0
