@@ -40,6 +40,7 @@ public class MobManager : MonoBehaviour
         //    SoundManager.Instance.PlaySoundEffect(SoundEffect.NextWave);
         //    OnWaveSpawned.Invoke();
         //}
+
         activeMobs = Waves[currentWaveIndex].NumberOfMobs;
 
         for (int i = 0; i < Waves[currentWaveIndex].NumberOfMobs; i++)
@@ -50,12 +51,12 @@ public class MobManager : MonoBehaviour
 
             mob.GetComponent<NPCController>().waypoints = findClosestWayPoints(mob.transform);
 
-            //CharacterStats stats = mob.GetComponent<CharacterStats>();
-            //MobWave currentWave = Waves[currentWaveIndex];
+            CharacterStats stats = mob.GetComponent<CharacterStats>();
+            MobWave currentWave = Waves[currentWaveIndex];
 
-            //stats.SetInitialHealth(currentWave.MobHealth);
-            //stats.SetInitialResistance(currentWave.MobResistance);
-            //stats.SetInitialDamage(currentWave.MobDamage);
+            stats.SetInitialHealth(currentWave.MobHealth);
+            stats.SetInitialResistance(currentWave.MobResistance);
+            stats.SetInitialDamage(currentWave.MobDamage);
         }
     }
 

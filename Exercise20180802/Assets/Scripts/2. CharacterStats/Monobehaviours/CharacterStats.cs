@@ -18,11 +18,15 @@ public class CharacterStats : MonoBehaviour
     #endregion
 
     #region Initializations
-    void Start()
+    private void Awake()
     {
+        //make sure it's initialized before any other class tries to manipulate its values.
         if (characterDefinition_Template != null)
             characterDefinition = Instantiate(characterDefinition_Template);
+    }
 
+    void Start()
+    {
         if (!characterDefinition.setManually)
         {
             characterDefinition.maxHealth = 500;
@@ -124,6 +128,28 @@ public class CharacterStats : MonoBehaviour
     public float GetResistance()
     {
         return characterDefinition.currentResistance;
+    }
+
+    #endregion
+
+    #region Stat Initializers
+
+    public void SetInitialHealth(int health)
+    {
+        characterDefinition.maxHealth = health;
+        characterDefinition.currentHealth = health;
+    }
+
+    public void SetInitialResistance(int resistance)
+    {
+        characterDefinition.baseResistance = resistance;
+        characterDefinition.currentResistance = resistance;
+    }
+
+    public void SetInitialDamage(int damage)
+    {
+        characterDefinition.baseDamage = damage;
+        characterDefinition.currentDamage = damage;
     }
 
     #endregion
