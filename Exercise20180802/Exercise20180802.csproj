@@ -311,6 +311,7 @@
     <Compile Include="Assets\Scripts\6. Combat\ScriptableObjects\Weapon.cs" />
     <Compile Include="Assets\Scripts\7.CTL\Monobehaviors\MobManager.cs" />
     <Compile Include="Assets\Scripts\7.CTL\Monobehaviors\Spawnpoint.cs" />
+    <Compile Include="Assets\Scripts\7.CTL\ScriptableObjects\MobWave.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Menu\PauseMenu.cs" />

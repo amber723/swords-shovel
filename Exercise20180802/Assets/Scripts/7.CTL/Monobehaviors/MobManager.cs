@@ -7,7 +7,7 @@ public class MobManager : MonoBehaviour
 {
     public GameObject[] Mobs;
     public int NumberToSpawn = 6;
-    //public MobWave[] Waves;
+    public MobWave[] Waves;
     //public List<DropTable> dropTables;
 
     //public Events.EventIntegerEvent OnMobKilled;
