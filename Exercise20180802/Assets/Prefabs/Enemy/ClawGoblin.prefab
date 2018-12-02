@@ -151,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RagdollObject: {fileID: 114743865186994990, guid: 71687b4f2d2a4b1439c079dd3a06dbb1,
     type: 2}
-  Force: 3000
+  Force: 2000
   Lift: 5
 --- !u!114 &114183534937681306
 MonoBehaviour:
@@ -173,6 +173,11 @@ MonoBehaviour:
   - {fileID: 0}
   attack: {fileID: 11400000, guid: c4499d1da8e9e4de785f5d45fe013fb1, type: 2}
   SpellHotSpot: {fileID: 0}
+  OnMobDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Events+EventMobDeath, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114723366299601104
 MonoBehaviour:
   m_ObjectHideFlags: 1

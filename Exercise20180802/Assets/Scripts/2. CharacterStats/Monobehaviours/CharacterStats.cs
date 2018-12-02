@@ -25,8 +25,8 @@ public class CharacterStats : MonoBehaviour
 
         if (!characterDefinition.setManually)
         {
-            characterDefinition.maxHealth = 100;
-            characterDefinition.currentHealth = 50;
+            characterDefinition.maxHealth = 500;
+            characterDefinition.currentHealth = 500;
 
             characterDefinition.maxMana = 25;
             characterDefinition.currentMana = 10;

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setManually: 1
   saveDataOnClose: 1
-  maxHealth: 100
-  currentHealth: 50
+  maxHealth: 500
+  currentHealth: 500
   maxWealth: 500
   currentWealth: 0
   maxMana: 25

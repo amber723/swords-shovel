@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public class MobManager : MonoBehaviour 
 {
     public GameObject[] Mobs;
-    public int NumberToSpawn = 6;
     public MobWave[] Waves;
     //public List<DropTable> dropTables;
 
@@ -15,8 +14,8 @@ public class MobManager : MonoBehaviour
     //public UnityEvent OnOutOfWaves;
     //public UnityEvent OnWaveSpawned;
 
-    //private int currentWaveIndex = 0;
-    //private int activeMobs;
+    int currentWaveIndex = 0;
+    int activeMobs;
 
     private Spawnpoint[] spawnpoints;
 
@@ -28,64 +27,59 @@ public class MobManager : MonoBehaviour
 
     public void SpawnWave()
     {
-        for (int i = 0; i <= NumberToSpawn - 1; i++)
+        if (currentWaveIndex >= Waves.Length)
         {
-            Spawnpoint spawnpoint = selectRandomSpawnpoint();
-            GameObject mob = Instantiate(selectRandomMob(), 
-                spawnpoint.transform.position, Quaternion.identity);
-
-            mob.GetComponent<NPCController>().waypoints = findClosestWayPoints(mob.transform);
-
+            Debug.LogWarning("No Waves Left. You Win!");
+            //StartCoroutine(GameManager.Instance.EndGame());
+            //OnOutOfWaves.Invoke();
+            return;
         }
-
-        //if (Waves.Length - 1 < currentWaveIndex)
-        //{
-        //    StartCoroutine(GameManager.Instance.EndGame());
-        //    OnOutOfWaves.Invoke();
-        //    return;
-        //}
 
         //if (currentWaveIndex > 0)
         //{
         //    SoundManager.Instance.PlaySoundEffect(SoundEffect.NextWave);
         //    OnWaveSpawned.Invoke();
         //}
-        //activeMobs = Waves[currentWaveIndex].NumberOfMobs;
+        activeMobs = Waves[currentWaveIndex].NumberOfMobs;
 
-        //for (int i = 0; i <= Waves[currentWaveIndex].NumberOfMobs - 1; i++)
-        //{
-        //    Spawnpoint spawnpoint = selectRandomSpawnpoint();
-        //    GameObject mob = Instantiate(selectRandomMob(),
-        //                                 spawnpoint.transform.position, Quaternion.identity);
-        //    mob.GetComponent<NPCController>().waypoints = findClosestWayPoints(mob.transform);
+        for (int i = 0; i < Waves[currentWaveIndex].NumberOfMobs; i++)
+        {
+            Spawnpoint spawnpoint = selectRandomSpawnpoint();
+            GameObject mob = Instantiate(selectRandomMob(),
+                spawnpoint.transform.position, Quaternion.identity);
 
-        //    CharacterStats stats = mob.GetComponent<CharacterStats>();
-        //    MobWave currentWave = Waves[currentWaveIndex];
+            mob.GetComponent<NPCController>().waypoints = findClosestWayPoints(mob.transform);
 
-        //    stats.SetInitialHealth(currentWave.MobHealth);
-        //    stats.SetInitialResistance(currentWave.MobResistance);
-        //    stats.SetInitialDamage(currentWave.MobDamage);
-        //}
+            //CharacterStats stats = mob.GetComponent<CharacterStats>();
+            //MobWave currentWave = Waves[currentWaveIndex];
+
+            //stats.SetInitialHealth(currentWave.MobHealth);
+            //stats.SetInitialResistance(currentWave.MobResistance);
+            //stats.SetInitialDamage(currentWave.MobDamage);
+        }
     }
 
-    //public void OnMobDeath(MobType mobType, Vector3 mobPosition)
-    //{
-    //    SoundManager.Instance.PlaySoundEffect(SoundEffect.MobDeath);
-    //    spawnDrop(mobType, mobPosition);
+    public void OnMobDeath(/*MobType mobType, Vector3 mobPosition*/)
+    {
+        //SoundManager.Instance.PlaySoundEffect(SoundEffect.MobDeath);
+        //spawnDrop(mobType, mobPosition);
 
-    //    MobWave currentWave = Waves[currentWaveIndex];
+        //MobWave currentWave = Waves[currentWaveIndex];
 
-    //    activeMobs -= 1;
-    //    OnMobKilled.Invoke(currentWave.PointsPerKill);
-    //    Debug.LogWarningFormat("{0} killed at {1}", mobType, mobPosition);
+        activeMobs -= 1;
+        Debug.LogWarningFormat("Mob died {0} remaining", activeMobs);
+        //OnMobKilled.Invoke(currentWave.PointsPerKill);
+        //Debug.LogWarningFormat("{0} killed at {1}", mobType, mobPosition);
 
-    //    if(activeMobs == 0)
-    //    {
-    //        OnWaveCompleted.Invoke(currentWave.WaveValue);
-    //        currentWaveIndex += 1;
-    //        SpawnWave();
-    //    }
-    //}
+        if (activeMobs == 0)
+        {
+            Debug.LogWarning("All mobs dead. Spawning next wave!");
+
+            //OnWaveCompleted.Invoke(currentWave.WaveValue);
+            currentWaveIndex += 1;
+            SpawnWave();
+        }
+    }
 
     GameObject selectRandomMob()
     {

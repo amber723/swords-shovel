@@ -14,6 +14,6 @@ MonoBehaviour:
   MobHealth: 35
   MobDamage: 10
   MobResistance: 5
-  NumberOfMobs: 12
+  NumberOfMobs: 4
   PointsPerKill: 7
   WaveValue: 125

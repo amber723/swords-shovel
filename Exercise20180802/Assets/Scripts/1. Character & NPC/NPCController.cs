@@ -9,6 +9,7 @@ public class NPCController : MonoBehaviour
     public AttackDefinition attack; // the attack the NPC inflicts on our player.
 
     public Transform SpellHotSpot;
+    public Events.EventMobDeath OnMobDeath;
 
     int index;                  // the current waypoint index in the waypoints array
     float speed, agentSpeed;    // current agent speed and NavMeshAgent component speed
@@ -26,6 +27,12 @@ public class NPCController : MonoBehaviour
         if (agent != null) { agentSpeed = agent.speed; }
         player = GameObject.FindGameObjectWithTag("Player").transform;
         index = Random.Range(0, waypoints.Length);
+
+        MobManager mobManager = FindObjectOfType<MobManager>();
+        if (mobManager != null)
+        {
+            OnMobDeath.AddListener(mobManager.OnMobDeath);
+        }
 
         //Repeatedly run the Tick() every half second.
         InvokeRepeating("Tick", 0, 0.5f);
@@ -108,5 +115,10 @@ public class NPCController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, aggroRange);
+    }
+
+    void OnDestroy()
+    {
+        OnMobDeath.Invoke();
     }
 }
