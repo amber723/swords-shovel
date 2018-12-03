@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400be73806ef4de46a59cf54e030dbed, type: 3}
   m_Name: MobWave_02
   m_EditorClassIdentifier: 
-  MobHealth: 35
-  MobDamage: 10
-  MobResistance: 5
+  MobHealth: 1
+  MobDamage: 1
+  MobResistance: 1
   NumberOfMobs: 4
-  PointsPerKill: 7
-  WaveValue: 125
+  PointsPerKill: 10
+  WaveValue: 200

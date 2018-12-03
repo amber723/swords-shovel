@@ -3058,6 +3058,54 @@ MonoBehaviour:
   Waves:
   - {fileID: 11400000, guid: ac8b1061505fa8348981baeaa7210edd, type: 2}
   - {fileID: 11400000, guid: b828d3d7ae0fdb6478f60ce7612b8d97, type: 2}
+  OnMobKilled:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1405501421}
+        m_MethodName: OnMobDeath
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Events+EventIntegerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnWaveCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1405501421}
+        m_MethodName: OnWaveComplete
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Events+EventIntegerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnOutOfWaves:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1405501421}
+        m_MethodName: OnOutOfWaves
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1957960816
 Prefab:
   m_ObjectHideFlags: 0

@@ -17,6 +17,8 @@ public class Events {
     [System.Serializable] public class EventGameObject: UnityEvent<GameObject> { }
 
     [System.Serializable] public class EventMobDeath: UnityEvent{ }
+
+    [System.Serializable] public class EventIntegerEvent: UnityEvent<int>{ }
 }
 
 public class EventTriggerExample : EventTrigger {

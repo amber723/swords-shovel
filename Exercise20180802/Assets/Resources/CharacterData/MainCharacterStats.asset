@@ -11,8 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4364c8c27c003fe46ad6e1bb210f6ca3, type: 3}
   m_Name: MainCharacterStats
   m_EditorClassIdentifier: 
-  setManually: 1
-  saveDataOnClose: 1
+  isHero: 1
   maxHealth: 500
   currentHealth: 500
   maxWealth: 500
@@ -34,69 +33,81 @@ MonoBehaviour:
     baseDamage: 0
     baseResistance: 0
     maxEncumbrance: 0
+    requiredXP: 0
   - maxHealth: 0
     maxMana: 10
     maxWealth: 0
     baseDamage: 0
     baseResistance: 0
     maxEncumbrance: 0
+    requiredXP: 0
   - maxHealth: 0
     maxMana: 0
     maxWealth: 0
     baseDamage: 10
     baseResistance: 0
     maxEncumbrance: 0
+    requiredXP: 0
   - maxHealth: 0
     maxMana: 0
     maxWealth: 100
     baseDamage: 0
     baseResistance: 0
     maxEncumbrance: 0
+    requiredXP: 0
   - maxHealth: 0
     maxMana: 0
     maxWealth: 0
     baseDamage: 0
     baseResistance: 5
     maxEncumbrance: 0
+    requiredXP: 0
   - maxHealth: 0
     maxMana: 0
     maxWealth: 0
     baseDamage: 0
     baseResistance: 0
     maxEncumbrance: 5
+    requiredXP: 0
   - maxHealth: 20
     maxMana: 0
     maxWealth: 0
     baseDamage: 0
     baseResistance: 0
     maxEncumbrance: 0
+    requiredXP: 0
   - maxHealth: 0
     maxMana: 20
     maxWealth: 0
     baseDamage: 0
     baseResistance: 0
     maxEncumbrance: 0
+    requiredXP: 0
   - maxHealth: 0
     maxMana: 0
     maxWealth: 0
     baseDamage: 20
     baseResistance: 0
     maxEncumbrance: 0
+    requiredXP: 0
   - maxHealth: 0
     maxMana: 0
     maxWealth: 200
     baseDamage: 0
     baseResistance: 0
     maxEncumbrance: 0
+    requiredXP: 0
   - maxHealth: 0
     maxMana: 0
     maxWealth: 200
     baseDamage: 0
     baseResistance: 10
     maxEncumbrance: 0
+    requiredXP: 0
   - maxHealth: 0
     maxMana: 0
     maxWealth: 200
     baseDamage: 0
     baseResistance: 0
     maxEncumbrance: 10
+    requiredXP: 0

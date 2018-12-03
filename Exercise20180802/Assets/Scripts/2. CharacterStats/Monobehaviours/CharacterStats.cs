@@ -18,7 +18,7 @@ public class CharacterStats : MonoBehaviour
     #endregion
 
     #region Initializations
-    private void Awake()
+    void Awake()
     {
         //make sure it's initialized before any other class tries to manipulate its values.
         if (characterDefinition_Template != null)
@@ -27,7 +27,7 @@ public class CharacterStats : MonoBehaviour
 
     void Start()
     {
-        if (!characterDefinition.setManually)
+        if (characterDefinition.isHero)
         {
             characterDefinition.maxHealth = 500;
             characterDefinition.currentHealth = 500;

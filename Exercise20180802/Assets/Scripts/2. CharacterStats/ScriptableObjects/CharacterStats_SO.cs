@@ -15,11 +15,14 @@ public class CharacterStats_SO : ScriptableObject
         public int baseDamage;
         public float baseResistance;
         public float maxEncumbrance;
+        public int requiredXP;
     }
 
     #region Fields
-    public bool setManually = false;
-    public bool saveDataOnClose = false;
+    //public bool setManually = false;
+    //public bool saveDataOnClose = false;
+
+    public bool isHero = false;
 
     public ItemPickUp weapon { get; private set; }
     public ItemPickUp headArmor { get; private set; }
@@ -254,7 +257,6 @@ public class CharacterStats_SO : ScriptableObject
     #region SaveCharacterData
     public void saveCharacterData()
     {
-        saveDataOnClose = true;
         EditorUtility.SetDirty(this);
     }
     #endregion

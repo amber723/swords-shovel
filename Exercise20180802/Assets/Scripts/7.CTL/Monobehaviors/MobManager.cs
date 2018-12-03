@@ -9,9 +9,9 @@ public class MobManager : MonoBehaviour
     public MobWave[] Waves;
     //public List<DropTable> dropTables;
 
-    //public Events.EventIntegerEvent OnMobKilled;
-    //public Events.EventIntegerEvent OnWaveCompleted;
-    //public UnityEvent OnOutOfWaves;
+    public Events.EventIntegerEvent OnMobKilled;
+    public Events.EventIntegerEvent OnWaveCompleted;
+    public UnityEvent OnOutOfWaves;
     //public UnityEvent OnWaveSpawned;
 
     int currentWaveIndex = 0;
@@ -29,9 +29,9 @@ public class MobManager : MonoBehaviour
     {
         if (currentWaveIndex >= Waves.Length)
         {
-            Debug.LogWarning("No Waves Left. You Win!");
+            //Debug.LogWarning("No Waves Left. You Win!");
             //StartCoroutine(GameManager.Instance.EndGame());
-            //OnOutOfWaves.Invoke();
+            OnOutOfWaves.Invoke();
             return;
         }
 
@@ -65,18 +65,18 @@ public class MobManager : MonoBehaviour
         //SoundManager.Instance.PlaySoundEffect(SoundEffect.MobDeath);
         //spawnDrop(mobType, mobPosition);
 
-        //MobWave currentWave = Waves[currentWaveIndex];
+        MobWave currentWave = Waves[currentWaveIndex];
 
         activeMobs -= 1;
-        Debug.LogWarningFormat("Mob died {0} remaining", activeMobs);
-        //OnMobKilled.Invoke(currentWave.PointsPerKill);
+        //Debug.LogWarningFormat("Mob died {0} remaining", activeMobs);
+        OnMobKilled.Invoke(currentWave.PointsPerKill);
         //Debug.LogWarningFormat("{0} killed at {1}", mobType, mobPosition);
 
         if (activeMobs == 0)
         {
-            Debug.LogWarning("All mobs dead. Spawning next wave!");
+            //Debug.LogWarning("All mobs dead. Spawning next wave!");
 
-            //OnWaveCompleted.Invoke(currentWave.WaveValue);
+            OnWaveCompleted.Invoke(currentWave.WaveValue);
             currentWaveIndex += 1;
             SpawnWave();
         }

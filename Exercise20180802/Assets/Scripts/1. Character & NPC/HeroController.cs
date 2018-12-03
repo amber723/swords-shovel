@@ -131,4 +131,26 @@ public class HeroController : MonoBehaviour
         aoeStompAttack.Fire(gameObject, gameObject.transform.position, 
             LayerMask.NameToLayer("PlayerSpells"));
     }
+
+    #region Callbacks
+
+    public void OnMobDeath(int pointVal)
+    {
+        //stats.IncreaseXP(pointVal);
+        Debug.LogWarningFormat("Mob Killed for {0} xp", pointVal);
+    }
+
+    public void OnWaveComplete(int pointVal)
+    {
+        //stats.IncreaseXP(pointVal);
+        Debug.LogWarningFormat("Wave Completed for {0} xp", pointVal);
+    }
+
+    public void OnOutOfWaves()
+    {
+        Debug.LogWarning("No more waves. you Win!");
+    }
+
+
+    #endregion
 }
