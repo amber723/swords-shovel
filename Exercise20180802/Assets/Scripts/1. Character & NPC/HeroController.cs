@@ -20,6 +20,14 @@ public class HeroController : MonoBehaviour
         stats = GetComponent<CharacterStats>();
     }
 
+    void Start()
+    {
+        //why we add the listener in HeroController instead of GameManager itself?
+        //To make sure CharacterStats is fully initialized before adding a listener
+        stats.characterDefinition.OnLevelUp.AddListener(
+            GameManager.Instance.OnHeroLeveledUp);
+    }
+
     void Update()
     {
         animator.SetFloat("Speed", agent.velocity.magnitude);
@@ -136,13 +144,13 @@ public class HeroController : MonoBehaviour
 
     public void OnMobDeath(int pointVal)
     {
-        //stats.IncreaseXP(pointVal);
+        stats.IncreaseXP(pointVal);
         Debug.LogWarningFormat("Mob Killed for {0} xp", pointVal);
     }
 
     public void OnWaveComplete(int pointVal)
     {
-        //stats.IncreaseXP(pointVal);
+        stats.IncreaseXP(pointVal);
         Debug.LogWarningFormat("Wave Completed for {0} xp", pointVal);
     }
 

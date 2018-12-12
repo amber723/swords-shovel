@@ -222,4 +222,9 @@ public class GameManager : Singleton<GameManager>
 #endif
 
     }
+
+    public void OnHeroLeveledUp(int newLv)
+    {
+        Debug.LogWarningFormat("Hero is now level {0}", newLv);
+    }
 }

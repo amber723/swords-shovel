@@ -11,103 +11,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4364c8c27c003fe46ad6e1bb210f6ca3, type: 3}
   m_Name: MainCharacterStats
   m_EditorClassIdentifier: 
+  OnLevelUp:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Events+EventIntegerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   isHero: 1
-  maxHealth: 500
-  currentHealth: 500
-  maxWealth: 500
+  maxHealth: 0
+  currentHealth: 0
+  maxWealth: 0
   currentWealth: 0
-  maxMana: 25
-  currentMana: 10
-  baseDamage: 2
-  currentDamage: 2
+  maxMana: 0
+  currentMana: 0
+  baseDamage: 0
+  currentDamage: 0
   baseResistance: 0
   currentResistance: 0
-  maxEncumbrance: 50
+  maxEncumbrance: 0
   currentEncumbrance: 0
   charExperience: 0
-  charLevel: 1
-  charLevelUps:
-  - maxHealth: 10
-    maxMana: 0
-    maxWealth: 0
-    baseDamage: 0
-    baseResistance: 0
-    maxEncumbrance: 0
+  charLevel: 0
+  charLevels:
+  - maxHealth: 100
+    maxMana: 100
+    maxWealth: 500
+    baseDamage: 3
+    baseResistance: 1
+    maxEncumbrance: 50
     requiredXP: 0
-  - maxHealth: 0
-    maxMana: 10
-    maxWealth: 0
-    baseDamage: 0
-    baseResistance: 0
-    maxEncumbrance: 0
-    requiredXP: 0
-  - maxHealth: 0
-    maxMana: 0
-    maxWealth: 0
-    baseDamage: 10
-    baseResistance: 0
-    maxEncumbrance: 0
-    requiredXP: 0
-  - maxHealth: 0
-    maxMana: 0
-    maxWealth: 100
-    baseDamage: 0
-    baseResistance: 0
-    maxEncumbrance: 0
-    requiredXP: 0
-  - maxHealth: 0
-    maxMana: 0
-    maxWealth: 0
-    baseDamage: 0
-    baseResistance: 5
-    maxEncumbrance: 0
-    requiredXP: 0
-  - maxHealth: 0
-    maxMana: 0
-    maxWealth: 0
-    baseDamage: 0
-    baseResistance: 0
-    maxEncumbrance: 5
-    requiredXP: 0
-  - maxHealth: 20
-    maxMana: 0
-    maxWealth: 0
-    baseDamage: 0
-    baseResistance: 0
-    maxEncumbrance: 0
-    requiredXP: 0
-  - maxHealth: 0
-    maxMana: 20
-    maxWealth: 0
-    baseDamage: 0
-    baseResistance: 0
-    maxEncumbrance: 0
-    requiredXP: 0
-  - maxHealth: 0
-    maxMana: 0
-    maxWealth: 0
-    baseDamage: 20
-    baseResistance: 0
-    maxEncumbrance: 0
-    requiredXP: 0
-  - maxHealth: 0
-    maxMana: 0
-    maxWealth: 200
-    baseDamage: 0
-    baseResistance: 0
-    maxEncumbrance: 0
-    requiredXP: 0
-  - maxHealth: 0
-    maxMana: 0
-    maxWealth: 200
-    baseDamage: 0
-    baseResistance: 10
-    maxEncumbrance: 0
-    requiredXP: 0
-  - maxHealth: 0
-    maxMana: 0
-    maxWealth: 200
-    baseDamage: 0
-    baseResistance: 0
-    maxEncumbrance: 10
-    requiredXP: 0
+  - maxHealth: 125
+    maxMana: 125
+    maxWealth: 500
+    baseDamage: 5
+    baseResistance: 2
+    maxEncumbrance: 75
+    requiredXP: 200
+  - maxHealth: 200
+    maxMana: 200
+    maxWealth: 500
+    baseDamage: 8
+    baseResistance: 3
+    maxEncumbrance: 100
+    requiredXP: 400

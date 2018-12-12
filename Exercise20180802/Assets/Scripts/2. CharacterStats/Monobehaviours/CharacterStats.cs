@@ -29,26 +29,10 @@ public class CharacterStats : MonoBehaviour
     {
         if (characterDefinition.isHero)
         {
-            characterDefinition.maxHealth = 500;
-            characterDefinition.currentHealth = 500;
-
-            characterDefinition.maxMana = 25;
-            characterDefinition.currentMana = 10;
-
-            characterDefinition.maxWealth = 500;
-            characterDefinition.currentWealth = 0;
-
-            characterDefinition.baseDamage = 2;
-            characterDefinition.currentDamage = characterDefinition.baseDamage;
-
-            characterDefinition.baseResistance = 0;
-            characterDefinition.currentResistance = 0;
-
-            characterDefinition.maxEncumbrance = 50f;
-            characterDefinition.currentEncumbrance = 0f;
-
+            characterDefinition.SetCharacterLevel(1);
             characterDefinition.charExperience = 0;
-            characterDefinition.charLevel = 1;
+            characterDefinition.currentWealth = 0;
+            characterDefinition.currentEncumbrance = 0;
         }
     }
     #endregion
@@ -76,6 +60,11 @@ public class CharacterStats : MonoBehaviour
     public void GiveWealth(int wealthAmount)
     {
         characterDefinition.GiveWealth(wealthAmount);
+    }
+
+    public void IncreaseXP(int xp)
+    {
+        characterDefinition.GiveXP(xp);
     }
     #endregion
 

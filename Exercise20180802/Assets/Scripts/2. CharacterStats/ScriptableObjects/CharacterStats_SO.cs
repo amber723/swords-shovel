@@ -6,8 +6,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewStats", menuName = "Character/Stats", order = 1)]
 public class CharacterStats_SO : ScriptableObject
 {
+    public Events.EventIntegerEvent OnLevelUp;
+
     [System.Serializable]
-    public class CharLevelUps
+    public class CharLevel
     {
         public int maxHealth;
         public int maxMana;
@@ -54,7 +56,7 @@ public class CharacterStats_SO : ScriptableObject
     public int charExperience = 0;
     public int charLevel = 0;
 
-    public CharLevelUps[] charLevelUps;
+    public CharLevel[] charLevels;
     #endregion
 
     #region Stat Increasers
@@ -94,6 +96,18 @@ public class CharacterStats_SO : ScriptableObject
         }
     }
 
+    public void GiveXP(int xp)
+    {
+        charExperience += xp;
+        if (charLevel < charLevels.Length)
+        {
+            int levelTarget = charLevels[charLevel].requiredXP;
+
+            if (charExperience >= levelTarget)
+                SetCharacterLevel(charLevel + 1);
+        }
+    }
+
     public void EquipWeapon(ItemPickUp weaponPickUp, CharacterInventory charInventory,
         GameObject weaponSlot)
     {
@@ -102,7 +116,7 @@ public class CharacterStats_SO : ScriptableObject
         weapon = weaponPickUp;
         charInventory.inventoryDisplaySlots[2].sprite = weaponPickUp.itemDefinition.itemIcon;
 
-        newWeapon = Instantiate(weaponPickUp.itemDefinition.weaponSlotObject.weaponPreb, 
+        newWeapon = Instantiate(weaponPickUp.itemDefinition.weaponSlotObject.weaponPreb,
             weaponSlot.transform);
 
         currentDamage = baseDamage + weapon.itemDefinition.itemAmount;
@@ -113,35 +127,35 @@ public class CharacterStats_SO : ScriptableObject
         switch (armorPickUp.itemDefinition.itemArmorSubType)
         {
             case ItemArmorSubType.Head:
-                charInventory.inventoryDisplaySlots[3].sprite 
+                charInventory.inventoryDisplaySlots[3].sprite
                     = armorPickUp.itemDefinition.itemIcon;
 
                 headArmor = armorPickUp;
                 currentResistance += armorPickUp.itemDefinition.itemAmount;
                 break;
             case ItemArmorSubType.Chest:
-                charInventory.inventoryDisplaySlots[4].sprite 
+                charInventory.inventoryDisplaySlots[4].sprite
                     = armorPickUp.itemDefinition.itemIcon;
 
                 chestArmor = armorPickUp;
                 currentResistance += armorPickUp.itemDefinition.itemAmount;
                 break;
             case ItemArmorSubType.Hands:
-                charInventory.inventoryDisplaySlots[5].sprite 
+                charInventory.inventoryDisplaySlots[5].sprite
                     = armorPickUp.itemDefinition.itemIcon;
 
                 handArmor = armorPickUp;
                 currentResistance += armorPickUp.itemDefinition.itemAmount;
                 break;
             case ItemArmorSubType.Legs:
-                charInventory.inventoryDisplaySlots[6].sprite 
+                charInventory.inventoryDisplaySlots[6].sprite
                     = armorPickUp.itemDefinition.itemIcon;
 
                 legArmor = armorPickUp;
                 currentResistance += armorPickUp.itemDefinition.itemAmount;
                 break;
             case ItemArmorSubType.Boots:
-                charInventory.inventoryDisplaySlots[7].sprite 
+                charInventory.inventoryDisplaySlots[7].sprite
                     = armorPickUp.itemDefinition.itemIcon;
 
                 footArmor = armorPickUp;
@@ -233,24 +247,38 @@ public class CharacterStats_SO : ScriptableObject
     #endregion
 
     #region Character Level Up and Death
-    private void Death()
+    void Death()
     {
         Debug.Log("You kicked it! Sorry Moosa-Magoose.");
         //Call to Game Manager for Death State to trigger respawn
         //Dispaly the Death visualization
     }
 
-    private void LevelUp()
+    public void SetCharacterLevel(int newLv)
     {
-        charLevel += 1;
+        charLevel = newLv;
         //Display Level Up Visualization
 
-        maxHealth = charLevelUps[charLevel -1].maxHealth;
-        maxMana = charLevelUps[charLevel - 1].maxMana;
-        maxWealth = charLevelUps[charLevel - 1].maxWealth;
-        baseDamage = charLevelUps[charLevel - 1].baseDamage;
-        baseResistance = charLevelUps[charLevel - 1].baseResistance;
-        maxEncumbrance = charLevelUps[charLevel - 1].maxEncumbrance;
+        maxHealth = charLevels[newLv - 1].maxHealth;
+        currentHealth = charLevels[newLv - 1].maxHealth;
+
+        maxMana = charLevels[newLv - 1].maxMana;
+        currentMana = charLevels[newLv - 1].maxMana;
+
+        maxWealth = charLevels[newLv - 1].maxWealth;
+
+        baseDamage = charLevels[newLv - 1].baseDamage;
+        currentDamage = charLevels[newLv - 1].baseDamage;
+        if (weapon != null)
+            currentDamage += weapon.itemDefinition.itemAmount;
+
+        baseResistance = charLevels[newLv - 1].baseResistance;
+        currentResistance = charLevels[newLv - 1].baseResistance;
+
+        maxEncumbrance = charLevels[newLv - 1].maxEncumbrance;
+
+        if (charLevel > 1)
+            OnLevelUp.Invoke(charLevel);
     }
     #endregion
 
