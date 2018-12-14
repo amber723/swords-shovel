@@ -8,6 +8,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private MainMenu _mainMenu;
     [SerializeField] private PauseMenu _pauseMenu;
     [SerializeField] private Camera _dummyCamera;
+    [SerializeField] private GameObject _unitFrame;
 
     public Events.EventFadeComplete OnMainMenuFadeComplete;
 
@@ -29,6 +30,10 @@ public class UIManager : Singleton<UIManager>
         GameManager.GameState prevState)
     {
         _pauseMenu.gameObject.SetActive(curState == GameManager.GameState.PAUSED);
+
+        bool showUnitFrame = curState == GameManager.GameState.RUNNING
+            || curState == GameManager.GameState.PAUSED;
+        _unitFrame.SetActive(showUnitFrame);
     }
 
     void Update()
