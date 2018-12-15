@@ -309,6 +309,7 @@
     <Compile Include="Assets\Scripts\6. Combat\ScriptableObjects\AttackDefinition.cs" />
     <Compile Include="Assets\Scripts\6. Combat\ScriptableObjects\Spell.cs" />
     <Compile Include="Assets\Scripts\6. Combat\ScriptableObjects\Weapon.cs" />
+    <Compile Include="Assets\Scripts\7.CTL\Monobehaviors\EnemyHealthBar.cs" />
     <Compile Include="Assets\Scripts\7.CTL\Monobehaviors\MobManager.cs" />
     <Compile Include="Assets\Scripts\7.CTL\Monobehaviors\Spawnpoint.cs" />
     <Compile Include="Assets\Scripts\7.CTL\ScriptableObjects\MobWave.cs" />
