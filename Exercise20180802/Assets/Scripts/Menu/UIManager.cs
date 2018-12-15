@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
@@ -9,6 +10,9 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private PauseMenu _pauseMenu;
     [SerializeField] private Camera _dummyCamera;
     [SerializeField] private GameObject _unitFrame;
+
+    [SerializeField] private Image healthBar;
+    [SerializeField] private Text levelText;
 
     public Events.EventFadeComplete OnMainMenuFadeComplete;
 
@@ -51,5 +55,20 @@ public class UIManager : Singleton<UIManager>
     public void SetDummyCameraActive(bool active)
     {
         _dummyCamera.gameObject.SetActive(active);
+    }
+
+    public void InitUnitFrame()
+    {
+        levelText.text = "1";
+        healthBar.fillAmount = 1;
+    }
+
+    public void UpdateUnitFrame(HeroController hero)
+    {
+        int curHp = hero.GetCurHp();
+        int maxHp = hero.GetMaxHp();
+
+        healthBar.fillAmount = (float) curHp / maxHp;
+        levelText.text = hero.GetCurLevel().ToString();
     }
 }

@@ -720,6 +720,8 @@ MonoBehaviour:
   _pauseMenu: {fileID: 114203739621867548}
   _dummyCamera: {fileID: 20757272912230474}
   _unitFrame: {fileID: 1367256414097396}
+  healthBar: {fileID: 114112410729981750}
+  levelText: {fileID: 114372431133158402}
   OnMainMenuFadeComplete:
     m_PersistentCalls:
       m_Calls: []

@@ -34,6 +34,22 @@ public class GameManager : Singleton<GameManager>
     //track the number of asyncOperations
     List<AsyncOperation> _loadOperations;
 
+    /*
+     * The GameManager will exist and start before the hero exist, so we 
+     * initialize the variable in the accessor instead of in the Start() method.
+     * This method is called Lazy Initialization.
+     */
+    HeroController heroCtrl;
+    HeroController hero {
+        get {
+            if (heroCtrl == null)
+            {
+                heroCtrl = FindObjectOfType<HeroController>();
+            }
+            return heroCtrl; 
+        }
+    }
+
     void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -48,7 +64,7 @@ public class GameManager : Singleton<GameManager>
         UIManager.Instance.OnMainMenuFadeComplete.AddListener(HandleMainMenuFadeComplete);
     }
 
-    private void Update()
+    void Update()
     {
         if (CurGameState == GameState.PREGAME)
             return;
@@ -223,8 +239,37 @@ public class GameManager : Singleton<GameManager>
 
     }
 
+    #region CallBacks
     public void OnHeroLeveledUp(int newLv)
     {
-        Debug.LogWarningFormat("Hero is now level {0}", newLv);
+        UIManager.Instance.UpdateUnitFrame(hero);
     }
+
+    public void OnHeroDamaged(int damage)
+    {
+        Debug.LogWarningFormat("Hero take {0} damage", damage);
+        UIManager.Instance.UpdateUnitFrame(hero);
+        //SoundManager.Instance.PlaySoundEffect(SoundEffect.HeroHit);
+    }
+
+    public void OnHeroGainedHealth(int health)
+    {
+        UIManager.Instance.UpdateUnitFrame(hero);
+        Debug.LogWarningFormat("Hero gained {0} health", health);
+    }
+
+    public void OnHeroDied()
+    {
+        UIManager.Instance.UpdateUnitFrame(hero);
+        //UIManager.Instance.PlayGameOver();
+        //SaveSession(EndGameState.Loss);
+        //StartCoroutine(EndGame());
+    }
+
+    public void OnHeroInit()
+    {
+        UIManager.Instance.InitUnitFrame();
+    }
+
+    #endregion
 }

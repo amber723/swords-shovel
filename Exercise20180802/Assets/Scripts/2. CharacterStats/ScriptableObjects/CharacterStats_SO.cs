@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "NewStats", menuName = "Character/Stats", order = 1)]
 public class CharacterStats_SO : ScriptableObject
 {
     public Events.EventIntegerEvent OnLevelUp;
+    public Events.EventIntegerEvent OnHeroDamaged;
+    public Events.EventIntegerEvent OnHeroGainedHealth;
+
+    public UnityEvent OnHeroDeath;
+    public UnityEvent OnHeroInitialized;
 
     [System.Serializable]
     public class CharLevel
@@ -69,6 +75,11 @@ public class CharacterStats_SO : ScriptableObject
         else
         {
             currentHealth += healthAmount;
+        }
+
+        if (isHero)
+        {
+            OnHeroGainedHealth.Invoke(healthAmount);
         }
     }
 
@@ -170,6 +181,11 @@ public class CharacterStats_SO : ScriptableObject
     {
         currentHealth -= amount;
 
+        if (isHero)
+        {
+            OnHeroDamaged.Invoke(amount);
+        }
+
         if (currentHealth <= 0)
         {
             Death();
@@ -249,9 +265,13 @@ public class CharacterStats_SO : ScriptableObject
     #region Character Level Up and Death
     void Death()
     {
-        Debug.Log("You kicked it! Sorry Moosa-Magoose.");
         //Call to Game Manager for Death State to trigger respawn
         //Dispaly the Death visualization
+
+        if (isHero)
+        {
+            OnHeroDeath.Invoke();
+        }
     }
 
     public void SetCharacterLevel(int newLv)

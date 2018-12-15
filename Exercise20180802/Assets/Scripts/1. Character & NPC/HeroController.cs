@@ -24,8 +24,13 @@ public class HeroController : MonoBehaviour
     {
         //why we add the listener in HeroController instead of GameManager itself?
         //To make sure CharacterStats is fully initialized before adding a listener
-        stats.characterDefinition.OnLevelUp.AddListener(
-            GameManager.Instance.OnHeroLeveledUp);
+        stats.characterDefinition.OnLevelUp.AddListener(GameManager.Instance.OnHeroLeveledUp);
+        stats.characterDefinition.OnHeroDamaged.AddListener(GameManager.Instance.OnHeroDamaged);
+        stats.characterDefinition.OnHeroGainedHealth.AddListener(GameManager.Instance.OnHeroGainedHealth);
+        stats.characterDefinition.OnHeroDeath.AddListener(GameManager.Instance.OnHeroDied);
+        stats.characterDefinition.OnHeroInitialized.AddListener(GameManager.Instance.OnHeroInit);
+
+        stats.characterDefinition.OnHeroInitialized.Invoke();
     }
 
     void Update()
@@ -140,18 +145,33 @@ public class HeroController : MonoBehaviour
             LayerMask.NameToLayer("PlayerSpells"));
     }
 
+    public int GetCurHp()
+    {
+        return stats.characterDefinition.currentHealth;
+    }
+
+    public int GetMaxHp()
+    {
+        return stats.characterDefinition.maxHealth;
+    }
+
+    public int GetCurLevel()
+    {
+        return stats.characterDefinition.charLevel;
+    }
+
     #region Callbacks
 
     public void OnMobDeath(int pointVal)
     {
         stats.IncreaseXP(pointVal);
-        Debug.LogWarningFormat("Mob Killed for {0} xp", pointVal);
+        //Debug.LogWarningFormat("Mob Killed for {0} xp", pointVal);
     }
 
     public void OnWaveComplete(int pointVal)
     {
         stats.IncreaseXP(pointVal);
-        Debug.LogWarningFormat("Wave Completed for {0} xp", pointVal);
+        //Debug.LogWarningFormat("Wave Completed for {0} xp", pointVal);
     }
 
     public void OnOutOfWaves()
