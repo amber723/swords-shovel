@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 114173924753597836}
   - component: {fileID: 114428180151146136}
   - component: {fileID: 195531394580831800}
+  - component: {fileID: 114031093431143936}
   m_Layer: 9
   m_Name: SpellCaster
   m_TagString: Untagged
@@ -126,7 +127,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4643567207702116}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4342659687418634
 Transform:
@@ -178,10 +179,10 @@ Transform:
   m_GameObject: {fileID: 1000029833523144}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.73, z: 0}
-  m_LocalScale: {x: 0.54999983, y: 0.39999995, z: 1}
+  m_LocalScale: {x: 0.54999983, y: 0.39999995, z: 0.99}
   m_Children: []
   m_Father: {fileID: 4643567207702116}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4643567207702116
 Transform:
@@ -193,8 +194,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4290044440156428}
   - {fileID: 4508387106195588}
+  - {fileID: 4290044440156428}
   m_Father: {fileID: 4342659687418634}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -215,6 +216,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 0
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114031093431143936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1595282568632310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de06d0028038900408c9ee4485d5a9f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114083995514055464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -288,6 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd5a224db79ab7a41a4a79b48bd9c07a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 212366029330442760}
 --- !u!114 &114684400227057966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -444,14 +457,14 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 77fe97d04e78d68489968ad15124be58, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.14, y: 0.08}
-  m_AdaptiveModeThreshold: 0.5
+  m_AdaptiveModeThreshold: 1
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0

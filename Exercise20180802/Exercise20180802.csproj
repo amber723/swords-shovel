@@ -296,6 +296,7 @@
     <Compile Include="Assets\Scripts\6. Combat\IDestructible.cs" />
     <Compile Include="Assets\Scripts\6. Combat\Monobehaviors\AttackedDebug.cs" />
     <Compile Include="Assets\Scripts\6. Combat\Monobehaviors\AttackedForce.cs" />
+    <Compile Include="Assets\Scripts\6. Combat\Monobehaviors\AttackedPlaySound.cs" />
     <Compile Include="Assets\Scripts\6. Combat\Monobehaviors\AttackedScrollingText.cs" />
     <Compile Include="Assets\Scripts\6. Combat\Monobehaviors\AttackedTakeDamage.cs" />
     <Compile Include="Assets\Scripts\6. Combat\Monobehaviors\DestructedDestroyObject.cs" />
@@ -310,7 +311,10 @@
     <Compile Include="Assets\Scripts\6. Combat\ScriptableObjects\Spell.cs" />
     <Compile Include="Assets\Scripts\6. Combat\ScriptableObjects\Weapon.cs" />
     <Compile Include="Assets\Scripts\7.CTL\Monobehaviors\EnemyHealthBar.cs" />
+    <Compile Include="Assets\Scripts\7.CTL\Monobehaviors\Exciter.cs" />
     <Compile Include="Assets\Scripts\7.CTL\Monobehaviors\MobManager.cs" />
+    <Compile Include="Assets\Scripts\7.CTL\Monobehaviors\SoundFXDefinition.cs" />
+    <Compile Include="Assets\Scripts\7.CTL\Monobehaviors\SoundManager.cs" />
     <Compile Include="Assets\Scripts\7.CTL\Monobehaviors\Spawnpoint.cs" />
     <Compile Include="Assets\Scripts\7.CTL\ScriptableObjects\MobWave.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />

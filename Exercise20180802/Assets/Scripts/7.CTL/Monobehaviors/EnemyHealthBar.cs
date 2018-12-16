@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class EnemyHealthBar : MonoBehaviour
 {
     Vector3 localScale;
+    [SerializeField] private SpriteRenderer healthBar;
     CharacterStats enemyStats;
 
     void Awake()
@@ -13,7 +14,7 @@ public class EnemyHealthBar : MonoBehaviour
 
     void Start()
     {
-        localScale = transform.localScale;
+        localScale = healthBar.transform.localScale;
     }
 
     void FixedUpdate()
@@ -23,7 +24,7 @@ public class EnemyHealthBar : MonoBehaviour
             localScale.x = (float) enemyStats.characterDefinition.currentHealth /
                 enemyStats.characterDefinition.maxHealth;
 
-            transform.localScale = localScale;
+            healthBar.transform.localScale = localScale;
         }
 
         //ensure the healthBar is always facing the camera.

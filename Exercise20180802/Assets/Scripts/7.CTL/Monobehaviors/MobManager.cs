@@ -35,11 +35,11 @@ public class MobManager : MonoBehaviour
             return;
         }
 
-        //if (currentWaveIndex > 0)
-        //{
-        //    SoundManager.Instance.PlaySoundEffect(SoundEffect.NextWave);
-        //    OnWaveSpawned.Invoke();
-        //}
+        if (currentWaveIndex > 0)
+        {
+            SoundManager.Instance.PlaySoundEffect(SoundEffect.NextWave);
+            //OnWaveSpawned.Invoke();
+        }
 
         activeMobs = Waves[currentWaveIndex].NumberOfMobs;
 
@@ -62,15 +62,13 @@ public class MobManager : MonoBehaviour
 
     public void OnMobDeath(/*MobType mobType, Vector3 mobPosition*/)
     {
-        //SoundManager.Instance.PlaySoundEffect(SoundEffect.MobDeath);
+        SoundManager.Instance.PlaySoundEffect(SoundEffect.MobDeath);
         //spawnDrop(mobType, mobPosition);
 
         MobWave currentWave = Waves[currentWaveIndex];
 
         activeMobs -= 1;
-        //Debug.LogWarningFormat("Mob died {0} remaining", activeMobs);
         OnMobKilled.Invoke(currentWave.PointsPerKill);
-        //Debug.LogWarningFormat("{0} killed at {1}", mobType, mobPosition);
 
         if (activeMobs == 0)
         {

@@ -243,13 +243,14 @@ public class GameManager : Singleton<GameManager>
     public void OnHeroLeveledUp(int newLv)
     {
         UIManager.Instance.UpdateUnitFrame(hero);
+        SoundManager.Instance.PlaySoundEffect(SoundEffect.LevelUp);
     }
 
     public void OnHeroDamaged(int damage)
     {
-        Debug.LogWarningFormat("Hero take {0} damage", damage);
+        //Debug.LogWarningFormat("Hero damage for {0}", damage);
         UIManager.Instance.UpdateUnitFrame(hero);
-        //SoundManager.Instance.PlaySoundEffect(SoundEffect.HeroHit);
+        SoundManager.Instance.PlaySoundEffect(SoundEffect.HeroHit);
     }
 
     public void OnHeroGainedHealth(int health)
