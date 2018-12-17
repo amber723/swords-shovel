@@ -262,9 +262,19 @@ public class GameManager : Singleton<GameManager>
     public void OnHeroDied()
     {
         UIManager.Instance.UpdateUnitFrame(hero);
-        //UIManager.Instance.PlayGameOver();
+        UIManager.Instance.PlayGameOver();
         //SaveSession(EndGameState.Loss);
         //StartCoroutine(EndGame());
+    }
+
+    public void OnOutOfWaves()
+    {
+        UIManager.Instance.PlayYouWin();
+    }
+
+    public void OnNextWave()
+    {
+        UIManager.Instance.PlayNextWave();
     }
 
     public void OnHeroInit()

@@ -13,6 +13,13 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private Image healthBar;
     [SerializeField] private Text levelText;
 
+    [SerializeField] private Image NextWave;
+    [SerializeField] private Image GameOver;
+    [SerializeField] private Image YouWin;
+
+    //[SerializeField] private Text TitleText;
+    //[SerializeField] private Text TagLine;
+
     public Events.EventFadeComplete OnMainMenuFadeComplete;
 
     private void Start()
@@ -70,4 +77,36 @@ public class UIManager : Singleton<UIManager>
         healthBar.fillAmount = (float) curHp / maxHp;
         levelText.text = hero.GetCurLevel().ToString();
     }
+
+    public void PlayNextWave()
+    {
+        NextWave.gameObject.SetActive(true);
+    }
+
+    public void PlayGameOver()
+    {
+        GameOver.gameObject.SetActive(true);
+    }
+
+    public void PlayYouWin()
+    {
+        YouWin.gameObject.SetActive(true);
+    }
+
+    //public void HideUI()
+    //{
+    //    unitFrame.SetActive(false);
+    //    SetDummyCameraActive(false);
+    //    _mainMenu.gameObject.SetActive(false);
+    //    _pauseMenu.gameObject.SetActive(false);
+    //    TagLine.gameObject.SetActive(false);
+    //    TitleText.gameObject.SetActive(false);
+    //}
+
+    //public void ShowUI()
+    //{
+    //    _mainMenu.gameObject.SetActive(true);
+    //    _mainMenu.FadeOut();
+    //    GameManager.Instance.CurrentGameState = GameManager.GameState.RUNNING;
+    //}
 }
