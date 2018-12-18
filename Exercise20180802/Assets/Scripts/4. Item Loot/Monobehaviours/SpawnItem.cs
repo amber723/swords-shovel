@@ -50,7 +50,8 @@ public class SpawnItem : MonoBehaviour, ISpawns
                     transform.position.z), Quaternion.identity);
 
                 itemMaterial = itemSpawned.GetComponent<Renderer>();
-                itemMaterial.material = ip.itemMaterial;
+                if(itemMaterial != null)
+                    itemMaterial.material = ip.itemMaterial;
 
                 itemType = itemSpawned.GetComponent<ItemPickUp>();
                 itemType.itemDefinition = ip;
