@@ -589,6 +589,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114730387082461976, guid: 2aed12cb5356191448df8dbe1baeae52,
+        type: 2}
+      propertyPath: itemDefinitions.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e8ae8529c8d84b488859590c84fdb12,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2aed12cb5356191448df8dbe1baeae52, type: 2}
   m_IsPrefabParent: 0
@@ -1041,7 +1047,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1916887386533802, guid: e17c258d90d6a2345a50939714d1ebb9, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224884190279225534, guid: e17c258d90d6a2345a50939714d1ebb9,
         type: 2}
@@ -1053,6 +1059,26 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114673009205278288, guid: e17c258d90d6a2345a50939714d1ebb9,
+        type: 2}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 588948689}
+    - target: {fileID: 114610022018804608, guid: e17c258d90d6a2345a50939714d1ebb9,
+        type: 2}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 588948688}
+    - target: {fileID: 114859449121013478, guid: e17c258d90d6a2345a50939714d1ebb9,
+        type: 2}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 588948687}
+    - target: {fileID: 114838220524713690, guid: e17c258d90d6a2345a50939714d1ebb9,
+        type: 2}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 588948686}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e17c258d90d6a2345a50939714d1ebb9, type: 2}
   m_IsPrefabParent: 0
@@ -3069,6 +3095,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ac8b1061505fa8348981baeaa7210edd, type: 2}
   - {fileID: 11400000, guid: b828d3d7ae0fdb6478f60ce7612b8d97, type: 2}
   - {fileID: 11400000, guid: c6b771ccf8a977a46954a4f6cea4f037, type: 2}
+  dropTables:
+  - {fileID: 11400000, guid: ed20c04884d078b4aa75604657775332, type: 2}
+  - {fileID: 11400000, guid: 62fca1860139f0145bd92f883122a69d, type: 2}
   OnMobKilled:
     m_PersistentCalls:
       m_Calls:

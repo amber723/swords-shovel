@@ -256,9 +256,7 @@ public class CharacterInventory : Singleton<CharacterInventory>
         {
             if (itemToUseID >= 100)
             {
-                itemToUseID -= 100;
-
-                if (ie.Value.hotBarSlot == itemToUseID)
+                if (ie.Value.hotBarSlot == (itemToUseID - 100))
                 {
                     itemToUse = ie;
                     break;

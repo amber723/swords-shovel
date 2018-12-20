@@ -1,12 +1,20 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+[System.Serializable]
+public enum MobType
+{
+    ClawGoblin,
+    SpellCaster
+}
+
 public class NPCController : MonoBehaviour
 {
     public float patrolTime = 15;   // time in seconds to wait before seeking a new patrol destination
     public float aggroRange = 10;   // distance in scene units below which the NPC will increase speed and seek the player
     public Transform[] waypoints;   // collection of waypoints which define a patrol area
     public AttackDefinition attack; // the attack the NPC inflicts on our player.
+    public MobType mobType;
 
     public Transform SpellHotSpot;
     public Events.EventMobDeath OnMobDeath;
@@ -115,10 +123,5 @@ public class NPCController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, aggroRange);
-    }
-
-    void OnDestroy()
-    {
-        OnMobDeath.Invoke();
     }
 }

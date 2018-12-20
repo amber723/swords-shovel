@@ -3,11 +3,11 @@ using System.Linq;
 using UnityEngine.Events;
 using System.Collections.Generic;
 
-public class MobManager : MonoBehaviour 
+public class MobManager : MonoBehaviour
 {
     public GameObject[] Mobs;
     public MobWave[] Waves;
-    //public List<DropTable> dropTables;
+    public List<DropTable> dropTables;
 
     public Events.EventIntegerEvent OnMobKilled;
     public Events.EventIntegerEvent OnWaveCompleted;
@@ -19,11 +19,11 @@ public class MobManager : MonoBehaviour
 
     private Spawnpoint[] spawnpoints;
 
-	void Start () 
+    void Start()
     {
         spawnpoints = FindObjectsOfType<Spawnpoint>();
         SpawnWave();
-	}
+    }
 
     public void SpawnWave()
     {
@@ -60,10 +60,19 @@ public class MobManager : MonoBehaviour
         }
     }
 
-    public void OnMobDeath(/*MobType mobType, Vector3 mobPosition*/)
+    public void OnMobDeath(MobType mobType, Vector3 mobPosition)
     {
-        SoundManager.Instance.PlaySoundEffect(SoundEffect.MobDeath);
-        //spawnDrop(mobType, mobPosition);
+        //Debugging Code
+        if (SoundManager.Instance == null)
+        {
+            Debug.LogError("SoundManager Null!");
+        }
+        else
+        {
+            SoundManager.Instance.PlaySoundEffect(SoundEffect.MobDeath);
+        }
+
+        spawnDrop(mobType, mobPosition);
 
         MobWave currentWave = Waves[currentWaveIndex];
 
@@ -109,34 +118,33 @@ public class MobManager : MonoBehaviour
             select t;
 
         return transforms.ToArray();
-   }
+    }
 
-    //private void spawnDrop(MobType mobType, Vector3 position)
-    //{
-    //    ItemPickUps_SO item = getDrop(mobType);
+    void spawnDrop(MobType mobType, Vector3 position)
+    {
+        ItemPickUps_SO item = getDrop(mobType);
 
-    //    if (item != null)
-    //        Instantiate(item.itemSpawnObject, position, Quaternion.identity);
-    //}
+        if (item != null)
+            Instantiate(item.itemSpawnObject, position, Quaternion.identity);
+    }
 
+    ItemPickUps_SO getDrop(MobType mobType)
+    {
+        DropTable mobDrops = dropTables.Find(mt => mt.mobType == mobType);
 
-    //private ItemPickUps_SO getDrop(MobType mobType)
-    //{
-    //    DropTable mobDrops = dropTables.Find(mt => mt.mobType == mobType);
+        if (mobDrops == null)
+            return null;
 
-    //    if (mobDrops == null)
-    //        return null;
+        mobDrops.drops.OrderBy(d => d.DropChance);
 
-    //    mobDrops.drops.OrderBy(d => d.DropChance);
+        foreach (DropDefinition dropDef in mobDrops.drops)
+        {
+            bool shouldDrop = Random.value < dropDef.DropChance;
 
-    //    foreach(DropDefinition dropDef in mobDrops.drops)
-    //    {
-    //        bool shouldDrop = Random.value < dropDef.DropChance;
+            if (shouldDrop)
+                return dropDef.Drop;
+        }
 
-    //        if (shouldDrop)
-    //            return dropDef.Drop;
-    //    }
-
-    //    return null;
-    //}
+        return null;
+    }
 }
