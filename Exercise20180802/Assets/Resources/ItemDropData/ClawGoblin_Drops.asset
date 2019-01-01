@@ -14,4 +14,6 @@ MonoBehaviour:
   mobType: 0
   drops:
   - Drop: {fileID: 11400000, guid: 7e80c7616e4391246905adcf20be801f, type: 2}
-    DropChance: 1
+    DropChance: 0.5
+  - Drop: {fileID: 11400000, guid: fb5413c955a5ddb4396469b489b0a428, type: 2}
+    DropChance: 0.5

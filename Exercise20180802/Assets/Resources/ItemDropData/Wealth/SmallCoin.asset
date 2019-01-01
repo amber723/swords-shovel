@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Name: SmallCoin
   m_EditorClassIdentifier: 
   itemName: Small Coin
-  itemType: 1
+  itemType: 2
   itemArmorSubType: 0
   itemAmount: 5
   spawnChanceWeight: 0
   itemMaterial: {fileID: 0}
   itemIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  itemSpawnObject: {fileID: 54197034332194854, guid: 4215ee66fce11477fbf5f522481b22dc,
+  itemSpawnObject: {fileID: 54197034332194854, guid: 25f0b2eee6faee241bf0392fa009332d,
     type: 2}
   weaponSlotObject: {fileID: 0}
   isEquipped: 0
